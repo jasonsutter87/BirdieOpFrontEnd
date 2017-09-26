@@ -1,0 +1,4 @@
+/*
+  users course list
+  list of all the course that that user has played
+*/

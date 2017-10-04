@@ -1,7 +1,7 @@
 import React from 'react';
 import SignIn from './components/sign_in';
 import SignUp from './components/sign_up';
-import ClosestCourse from './components/closestCourses';
+import Hole from './components/hole';
 
 
 
@@ -11,7 +11,7 @@ class App extends React.Component{
       <div>
         <SignIn />
         <SignUp />
-        <ClosestCourse />
+        <Hole />
       </div>
     )
   }

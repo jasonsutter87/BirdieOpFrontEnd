@@ -1,16 +1,17 @@
-/*
-  axios to GET all User course information
-  axios to POST User courses
-*/
 
-// TODO:
-//Get an array of objects all the courses in the users profile
-const userCourses = axios();
+const axios = require('axios'); // promised based requests - like fetch()
 
-// TODO:
-//Get and array of objects of all the courses
-const allCourses = axios();
+export async function GetCourses() {
+  try {
 
-// TODO:
-//Add to users courses array
-const addToUserCourse = axios();
+    // then we grab some data over an Ajax request
+    const wordPromise = await axios('http://localhost:3000/api/courses');
+    // console.log(wordPromise.data)
+    const [word] = await Promise.all([wordPromise]);
+      return word.data; // cool, {...}, {....}
+  } catch (e) {
+    console.error(e); // 💩
+  }
+}
+
+export default GetCourses;

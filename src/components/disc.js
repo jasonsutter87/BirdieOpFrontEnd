@@ -1,3 +1,0 @@
-/*
-  list of disc choices
-*/

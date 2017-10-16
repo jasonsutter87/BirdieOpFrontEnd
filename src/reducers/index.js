@@ -14,24 +14,41 @@ const initialState = {
     description: 'My good old neighborhood park where i created my own course',
     lat:38.715583,
     lng: -121.190317,
-    course_avg: 54 }],
-  rounds: [{
-    _id: 'aaaaa',
-    course_id: '00001',
-    score: 54,
-    par: 54
+    course_avg: 54 ,
+    players_avg: 54 ,
   },
+  { _id: '00002',
+      name: 'Rocklin Golf Park',
+      rating: 4,
+      hole_count: 18,
+      difficulty: 'Easy',
+      description: 'Fun Open shots',
+      lat: 38.715583,
+      lng: -121.190317,
+      course_avg: 54,
+      players_avg: 57 ,
+     },
+
+  ],
+  rounds: [
     {
-      _id: 'aaaab',
+      _id: 'aaaaa',
       course_id: '00001',
-      score: 55,
+      score: 54,
       par: 54
-   },
-   {
-     _id: 'aaaac',
-     course_id: '00001',
-     score: 53,
-     par: 54}
+    },
+    {
+        _id: 'aaaab',
+        course_id: '00002',
+        score: 55,
+        par: 54
+    },
+    {
+       _id: 'aaaac',
+       course_id: '00001',
+       score: 53,
+       par: 54
+     }
    ]
 };
 

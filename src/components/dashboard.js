@@ -1,41 +1,25 @@
 import React, { Component } from 'react';
-import * as Actions from '../actions';
-import { connect } from 'react-redux';
+import Header from './header';
+import Info from './info';
+// import Courses from './courses';
+// import Rounds from './rounds';
+import Footer from './footer';
+
+//TODO: ADD to dashboard render components
+// <Info />
+// <Courses />
+// <Rounds />
 
 class Dashboard extends Component {
-  constructor(props){
-    super(props)
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e){
-    e.preventDefault();
-    console.log(e.target.value)
-    this.props.increaseStroke(this.props.total_srokes, 5)
-  }
-
   render() {
     return (
       <div>
-        <div>
-          count: {this.props.total_srokes}
-        </div>
-        <div>
-          <input type='button' value='increase' onClick={this.handleClick} />
-        </div>
+        <Header />
+        <Info props={this}/>
+        <Footer />
       </div>
     );
   }
 }
 
-
-function mapStateToProps (state){
-  return {
-    total_srokes: state.total_srokes,
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  Actions
-)(Dashboard);
+export default Dashboard;

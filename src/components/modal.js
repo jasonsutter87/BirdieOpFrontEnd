@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
+import NewRound from './newround';
 
-function Modal() {
+class Modal extends Component {
+  constructor(props){
+    super(props)
+  }
+  render(props) {
+  console.log(this.props)
   return(
     <div id="myModal" className="modal fade" role="dialog">
       <div className="modal-dialog">
@@ -10,8 +16,7 @@ function Modal() {
             <h4 className="modal-title center">New Round</h4>
           </div>
           <div className="modal-body">
-            Course name,
-            hole count
+            <NewRound />
           </div>
           <div className="modal-footer">
             <button type="button" id='modalNewPostClose' className="btn btn-primary" data-dismiss="modal">Close</button>
@@ -20,6 +25,7 @@ function Modal() {
       </div>
     </div>
   )
+  }
 }
 
 

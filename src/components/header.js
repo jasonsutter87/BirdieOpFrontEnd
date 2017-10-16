@@ -9,6 +9,7 @@ function Header() {
             <div className="site-heading">
               <h1>Birdie Op!</h1>
               <span className="subheading">A page to keep track of your birdies!</span><br />
+              <button type="button" className="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">New Round?</button>
             </div>
           </div>
         </div>

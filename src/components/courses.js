@@ -12,7 +12,7 @@ class Courses extends Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12 mx-auto">
-            <p className="table-title">Past Search Results</p>
+            <h3 className="table-title">Played Coures</h3>
             <table style={{'width': '100%'}}>
               <thead>
                 <tr>

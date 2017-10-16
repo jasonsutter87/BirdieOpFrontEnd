@@ -1,0 +1,1 @@
+export const INCREASE_STROKE = 'INCREASE_STROKE';

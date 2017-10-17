@@ -1,11 +1,12 @@
 import React from 'react';
 
 function Round(props) {
+  console.log(props)
   return (
     <tr>
-      <td>{props.course_id}</td>
-      <td>{props.score}</td>
-      <td>{props.par}</td>
+      <td>{props.course}</td>
+      <td>{props.holes}</td>
+      <td>{props.users_score}</td>
     </tr>
   )
 };

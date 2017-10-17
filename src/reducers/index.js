@@ -1,5 +1,6 @@
 import {
   INCREASE_STROKE,
+  ADD_NEW_ROUND,
 } from '../constants';
 
 const initialState = {
@@ -30,35 +31,25 @@ const initialState = {
      },
 
   ],
-  rounds: [
-    {
-      _id: 'aaaaa',
-      course_id: '00001',
-      score: 54,
-      par: 54
-    },
-    {
-        _id: 'aaaab',
-        course_id: '00002',
-        score: 55,
-        par: 54
-    },
-    {
-       _id: 'aaaac',
-       course_id: '00001',
-       score: 53,
-       par: 54
-     }
-   ]
+  rounds: []
 };
 
 
 
 function BirdieOpReducer(state = initialState, action) {
-  const { total_srokes } = action;
+  const { total_srokes, course, users_score, holes } = action;
   switch (action.type) {
     case INCREASE_STROKE:
       return Object.assign({}, state, { total_srokes });
+    case ADD_NEW_ROUND:
+      return {
+         ...state,
+         rounds: [{
+           course,
+           holes,
+           users_score
+         }, ...state.rounds],
+       };
     default:
       return state;
   }

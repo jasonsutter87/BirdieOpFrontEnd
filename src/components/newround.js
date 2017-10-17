@@ -6,10 +6,9 @@ const $ = require("jquery");
 class NewRound extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      title: '',
-      contents: ''
+      course: '',
+      holes: 0,
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,34 +16,30 @@ class NewRound extends Component {
 
   handleChange(event) {
     event.preventDefault();
-    if(event.target.name === 'title') {
-      this.setState({title: event.target.value})
-    }else {
-      this.setState({contents: event.target.value})
-    }
+    this.setState({course: event.target.value.split(',***,')[0]})
+    this.setState({holes: event.target.value.split(',***,')[1]})
+
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    // this.props.addToPosts(uuidV4().split('-')[0], new Date().toDateString() ,this.state.title, this.state.contents);
+    if(this.state.course !== '' && this.state.course !== 'Pick a course' ){
+      this.props.addNewRound(this.state.course, this.state.holes, 0)
+    }
     $('#modalNewPostClose').click()
   }
 
 
-  render() {
+  render(props) {
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
-          <label>Title:</label><br />
-          <input className="form-control"  type="text" name="title" onChange={this.handleChange}/>
+          <select name="courses" className="form-control" onChange={this.handleChange}>
+          <option value={undefined}>Pick a course</option>
+          {this.props.courses.map((item) => <option value={[item.name, "***", item.hole_count]}>{item.name}</option>)}
+          </select>
         </div>
-
-        <div className="form-group">
-          <label>Content:</label><br />
-          <textarea className="form-control" type="text_area" rows="5" name="contents" onChange={this.handleChange}/>
-        </div>
-
         <input type="submit" className="btn btn-primary" value="Submit" />
         </form>
       </div>
@@ -55,7 +50,8 @@ class NewRound extends Component {
 
 function mapStateToProps (state){
   return {
-
+    course: state.course,
+    holes: state.holes,
   }
 }
 

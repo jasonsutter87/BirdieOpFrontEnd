@@ -6,7 +6,6 @@ class Modal extends Component {
     super(props)
   }
   render(props) {
-  console.log(this.props)
   return(
     <div id="myModal" className="modal fade" role="dialog">
       <div className="modal-dialog">

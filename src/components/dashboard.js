@@ -10,11 +10,10 @@ import Footer from './footer';
 // <Rounds />
 
 class Dashboard extends Component {
-  render() {
+  render(props) {
     return (
       <div>
-        <Header />
-        <Modal />
+        <Header store={this.props.store}/>
         <Info />
         <Courses />
         <Rounds />

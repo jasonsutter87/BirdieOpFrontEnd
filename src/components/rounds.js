@@ -16,9 +16,9 @@ class Rounds extends Component {
             <table style={{'width': '100%'}}>
               <thead>
                 <tr>
-                  <th>Course Id</th>
+                  <th>Course Name</th>
+                  <th>Hole Count</th>
                   <th>Score</th>
-                  <th>Par</th>
                 </tr>
               </thead>
               <tbody>
@@ -26,9 +26,9 @@ class Rounds extends Component {
                 rounds.map((round) =>
                   <Round
                     key={JSON.stringify(new Date().getTime())}
-                    course_id={round.course_id}
-                    score={round.score}
-                    par={round.par}
+                    course={round.course}
+                    holes={round.holes}
+                    users_score={round.users_score}
                   />
                 )
                 }

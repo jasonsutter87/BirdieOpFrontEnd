@@ -17,11 +17,17 @@ store.subscribe(() => {
   saveState(store.getState())
 })
 
-ReactDOM.render(
-  <Provider store={store}>
-    <div>
-      <App store={store}/>
-    </div>
-  </Provider>,
-  document.getElementById('root')
-);
+const render = () => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <div>
+        <App store={store}/>
+      </div>
+    </Provider>,
+    document.getElementById('root')
+  );
+}
+
+
+store.subscribe(render)
+render()

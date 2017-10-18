@@ -1,12 +1,14 @@
 import {
   INCREASE_STROKE,
+  INCREASE_BIRDIES,
+  INCREASE_STROKE_FOR_ROUND,
   ADD_NEW_ROUND,
   ADD_NEW_HOLE,
 } from '../constants';
 
 const initialState = {
   total_srokes: 0,
-  birdies: 27,
+  birdies: 0,
   courses: [
   { _id: '00001',
     name: 'GBH Disc Golf Park',
@@ -40,10 +42,14 @@ const initialState = {
 
 
 function BirdieOpReducer(state = initialState, action) {
-  const { total_srokes, course, users_score, holes, hole_num, course_id, par, strokes, date } = action;
+  const { total_srokes, course, users_score, holes, hole_num, course_id, par, strokes, date, birdies } = action;
   switch (action.type) {
     case INCREASE_STROKE:
       return Object.assign({}, state, { total_srokes });
+    case INCREASE_BIRDIES:
+      return Object.assign({}, state, { birdies });
+    case INCREASE_STROKE_FOR_ROUND:
+      return Object.assign({}, state, { users_score });
     case ADD_NEW_ROUND:
       return {
          ...state,

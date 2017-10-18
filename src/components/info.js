@@ -15,7 +15,7 @@ class Info extends Component {
               <p>Total Strokes: {this.props.total_srokes}</p>
               <p>Total Games: {this.props.rounds.length}</p>
               <p>Total Played Courses: {this.props.courses.length}</p>
-              <p>Total Birdies: {this.props.birdies}!!</p>
+              <p>Total Birdies: {this.props.birdies}</p>
             </div>
           </div>
         </div>

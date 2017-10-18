@@ -10,7 +10,6 @@ class Dashboard extends Component {
 
   handleClick(e){
     e.preventDefault();
-    console.log(e.target.value)
     this.props.increaseStroke(this.props.total_srokes, 5)
   }
 

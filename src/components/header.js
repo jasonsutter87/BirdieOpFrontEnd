@@ -35,7 +35,7 @@ class ModalHole extends Component {
     super(props)
   }
   render(props) {
-  const { courses } = this.props.store.store.getState();
+  const { courses, rounds, birdies } = this.props.store.store.getState();
   return(
     <div id="myModalHole" className="modal fade" role="dialog">
       <div className="modal-dialog">
@@ -45,7 +45,11 @@ class ModalHole extends Component {
             <h4 className="modal-title center">New Hole</h4>
           </div>
           <div className="modal-body">
-            <NewHole courses={courses}/>
+            <NewHole
+              courses={courses}
+              rounds={rounds}
+              birdies={birdies}
+             />
           </div>
           <div className="modal-footer">
             <button type="button" id='modalNewHoleClose' className="btn btn-primary" data-dismiss="modal">Close</button>

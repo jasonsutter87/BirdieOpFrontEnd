@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Hole from './hole';
+import '../styles/index.css';
 import { connect } from 'react-redux';
 
 class Holes extends Component {
@@ -23,7 +24,7 @@ class Holes extends Component {
                   <th>Stroke</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="scrollable">
                 {
                 holes.map((hole) =>
                   <Hole

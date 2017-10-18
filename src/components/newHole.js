@@ -8,6 +8,7 @@ class NewHole extends Component {
     super(props);
     this.state = {
       total_srokes: this.props.total_strokes,
+      users_score: 0,
       course: '',
       course_id: '',
       holes: 0,
@@ -52,11 +53,19 @@ class NewHole extends Component {
     event.preventDefault();
     if(this.state.hole_num !== 0 && this.state.par !== 0  && this.state.strokes !== 0){
       this.props.increaseStroke(this.props.total_srokes, parseInt(this.state.strokes))
+      this.props.rounds[0].users_score += parseInt(this.state.strokes)
       this.props.addNewHole(this.state.course_id, this.state.course, this.state.hole_num, this.state.par , this.state.strokes)
     }
+
+    if( (this.state.par - 1) == this.state.strokes) {
+      this.props.increaseBirdies(this.props.birdies, parseInt(this.state.strokes))
+    }
+
+
     $('#modalNewHoleClose').click()
     $('.modal-round').show()
     $('.modal-hole').hide()
+     window.location.reload();
   }
 
 
@@ -109,6 +118,7 @@ function mapStateToProps (state){
     course: state.course,
     holes: state.holes,
     total_srokes: state.total_srokes,
+    users_score: state.users_score,
     date: state.date,
   }
 }
